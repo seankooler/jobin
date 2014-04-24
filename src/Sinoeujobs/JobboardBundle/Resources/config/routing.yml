@@ -1,0 +1,6 @@
+sinoeujobs_jobboard_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SinoeujobsJobboardBundle:Default:index }
+sinoeujobs_jobboard_job_list:
+    pattern:  /jobs/
+    defaults: { _controller: SinoeujobsJobboardBundle:Job:list }

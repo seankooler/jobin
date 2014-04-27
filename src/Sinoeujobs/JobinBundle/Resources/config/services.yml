@@ -1,0 +1,7 @@
+parameters:
+#    sinoeujobs_jobin.example.class: Sinoeujobs\JobinBundle\Example
+
+services:
+#    sinoeujobs_jobin.example:
+#        class: %sinoeujobs_jobin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,36 @@
+Sinoeujobs\JobinBundle\Entity\company:
+    type: entity
+    table: null
+    repositoryClass: Sinoeujobs\JobinBundle\Entity\companyRepository
+    id:
+        company_id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        companyName:
+            type: string
+            length: '128'
+            column: company_name
+        companyWebsite:
+            type: string
+            length: '128'
+            column: company_website
+        companyLogo:
+            type: string
+            length: '128'
+            column: company_logo
+        companyIsActived:
+            type: boolean
+            column: company_is_actived
+        companyAccessUntil:
+            type: date
+            column: company_access_until
+        userId:
+            type: integer
+            column: user_id
+        addressId:
+            type: integer
+            column: address_id
+    lifecycleCallbacks: {  }

@@ -1,4 +1,4 @@
-sinoeujobs_jobboard:
-    resource: "@SinoeujobsJobboardBundle/Resources/config/routing.yml"
+sinoeujobs_jobin:
+    resource: "@SinoeujobsJobinBundle/Resources/config/routing.yml"
     prefix:   /
 

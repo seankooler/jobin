@@ -1,0 +1,65 @@
+Sinoeujobs\JobinBundle\Entity\Job:
+    type: entity
+    table: null
+    repositoryClass: Sinoeujobs\JobinBundle\Entity\JobRepository
+    id:
+        job_id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        jobTitle:
+            type: string
+            length: '128'
+            column: job_title
+        jobSlug:
+            type: string
+            length: '128'
+            column: job_slug
+        jobCompanyName:
+            type: string
+            length: '128'
+            column: job_company_name
+        jobCompanyLogo:
+            type: string
+            length: '128'
+            column: job_company_logo
+        jobDescription:
+            type: text
+            column: job_description
+        jobApply:
+            type: string
+            length: '255'
+            column: job_apply
+        jobCreatedAt:
+            type: datetime
+            column: job_created_at
+        jobUpdatedAt:
+            type: datetime
+            column: job_updated_at
+        jobExporesAt:
+            type: date
+            column: job_expores_at
+        jobIsApproved:
+            type: boolean
+            column: job_is_approved
+        jobIsActive:
+            type: boolean
+            column: job_is_active
+        jobIsFilled:
+            type: boolean
+            column: job_is_filled
+        jobTypeId:
+            type: integer
+            column: job_type_id
+        jobCategoryId:
+            type: integer
+            column: job_category_id
+        ownerId:
+            type: integer
+            column: owner_id
+        addressId:
+            type: integer
+            column: address_id
+    lifecycleCallbacks: {  }

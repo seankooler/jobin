@@ -1,0 +1,16 @@
+Sinoeujobs\JobinBundle\Entity\JobType:
+    type: entity
+    table: null
+    repositoryClass: Sinoeujobs\JobinBundle\Entity\JobTypeRepository
+    id:
+        job_type_id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        jobTypeLabel:
+            type: string
+            length: '45'
+            column: job_type_label
+    lifecycleCallbacks: {  }

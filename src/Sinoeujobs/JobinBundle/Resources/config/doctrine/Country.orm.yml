@@ -1,0 +1,20 @@
+Sinoeujobs\JobinBundle\Entity\Country:
+    type: entity
+    table: null
+    repositoryClass: Sinoeujobs\JobinBundle\Entity\CountryRepository
+    id:
+        country_id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        countryCode:
+            type: string
+            length: '2'
+            column: country_code
+        countryName:
+            type: string
+            length: '64'
+            column: country_name
+    lifecycleCallbacks: {  }

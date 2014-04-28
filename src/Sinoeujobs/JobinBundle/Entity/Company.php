@@ -37,6 +37,16 @@ class Company
     /**
      * @var \DateTime
      */
+    private $companyCreatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $companyUpdatedAt;
+
+    /**
+     * @var \DateTime
+     */
     private $companyAccessUntil;
 
     /**
@@ -49,13 +59,23 @@ class Company
      */
     private $addressId;
 
+    /**
+     * @var \Sinoeujobs\JobinBundle\Entity\Address
+     */
+    private $address;
 
     /**
-     * Get id
+     * @var \Sinoeujobs\JobinBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Get companyId
      *
      * @return integer 
      */
-    public function getId()
+    public function getCompanyId()
     {
         return $this->companyId;
     }
@@ -64,7 +84,7 @@ class Company
      * Set companyName
      *
      * @param string $companyName
-     * @return company
+     * @return Company
      */
     public function setCompanyName($companyName)
     {
@@ -87,7 +107,7 @@ class Company
      * Set companyWebsite
      *
      * @param string $companyWebsite
-     * @return company
+     * @return Company
      */
     public function setCompanyWebsite($companyWebsite)
     {
@@ -110,7 +130,7 @@ class Company
      * Set companyLogo
      *
      * @param string $companyLogo
-     * @return company
+     * @return Company
      */
     public function setCompanyLogo($companyLogo)
     {
@@ -133,7 +153,7 @@ class Company
      * Set companyIsActived
      *
      * @param boolean $companyIsActived
-     * @return company
+     * @return Company
      */
     public function setCompanyIsActived($companyIsActived)
     {
@@ -153,10 +173,56 @@ class Company
     }
 
     /**
+     * Set companyCreatedAt
+     *
+     * @return Company
+     */
+    public function setCompanyCreatedAt()
+    {
+        if (!$this->getCompanyCreatedAt()) {
+            $this->companyCreatedAt = new \DateTime();
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get companyCreatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getCompanyCreatedAt()
+    {
+        return $this->companyCreatedAt;
+    }
+
+    /**
+     * Set companyUpdatedAt
+     *
+     * @return Company
+     */
+    public function setCompanyUpdatedAt()
+    {
+        $this->companyUpdatedAt = new \DateTime();
+
+        return $this;
+    }
+
+    /**
+     * Get companyUpdatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getCompanyUpdatedAt()
+    {
+        return $this->companyUpdatedAt;
+    }
+
+    /**
      * Set companyAccessUntil
      *
      * @param \DateTime $companyAccessUntil
-     * @return company
+     * @return Company
      */
     public function setCompanyAccessUntil($companyAccessUntil)
     {
@@ -179,7 +245,7 @@ class Company
      * Set userId
      *
      * @param integer $userId
-     * @return company
+     * @return Company
      */
     public function setUserId($userId)
     {
@@ -202,7 +268,7 @@ class Company
      * Set addressId
      *
      * @param integer $addressId
-     * @return company
+     * @return Company
      */
     public function setAddressId($addressId)
     {
@@ -219,5 +285,51 @@ class Company
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\Address $address
+     * @return Company
+     */
+    public function setAddress(\Sinoeujobs\JobinBundle\Entity\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \Sinoeujobs\JobinBundle\Entity\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\User $user
+     * @return Company
+     */
+    public function setUser(\Sinoeujobs\JobinBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Sinoeujobs\JobinBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -21,11 +21,11 @@ class JobType
 
 
     /**
-     * Get id
+     * Get jobTypeId
      *
      * @return integer 
      */
-    public function getId()
+    public function getJobTypeId()
     {
         return $this->jobTypeId;
     }

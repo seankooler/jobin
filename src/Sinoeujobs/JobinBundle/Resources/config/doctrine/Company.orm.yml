@@ -1,11 +1,12 @@
-Sinoeujobs\JobinBundle\Entity\company:
+Sinoeujobs\JobinBundle\Entity\Company:
     type: entity
     table: null
     repositoryClass: Sinoeujobs\JobinBundle\Entity\companyRepository
     id:
-        company_id:
+        companyId:
             type: integer
             id: true
+            column: company_id
             generator:
                 strategy: AUTO
     fields:
@@ -24,13 +25,36 @@ Sinoeujobs\JobinBundle\Entity\company:
         companyIsActived:
             type: boolean
             column: company_is_actived
+        companyCreatedAt:
+            type: datetime
+            column: company_created_at
+        companyUpdatedAt:
+            type: datetime
+            column: company_updated_at
+            nullable: true
         companyAccessUntil:
             type: date
             column: company_access_until
+            nullable: true
         userId:
             type: integer
             column: user_id
         addressId:
             type: integer
             column: address_id
-    lifecycleCallbacks: {  }
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: companies
+            joinColumn:
+                name: userId
+                referencedColumnName: userId
+    oneToOne:
+        address:
+            targetEntity: Address
+            joinColumn:
+                name: addressId
+                referencedColumnName: addressId
+    lifecycleCallbacks:
+        prePersist: [ setCompanyCreatedAt ]
+        preUpdate: [ setCompanyUpdatedAt ]

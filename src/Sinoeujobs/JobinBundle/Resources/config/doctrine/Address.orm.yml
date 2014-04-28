@@ -1,0 +1,47 @@
+Sinoeujobs\JobinBundle\Entity\Address:
+    type: entity
+    table: null
+    repositoryClass: Sinoeujobs\JobinBundle\Entity\AddressRepository
+    id:
+        addressId:
+            type: integer
+            id: true
+            column: address_id
+            generator:
+                strategy: AUTO
+    fields:
+        addressProvince:
+            type: string
+            length: '45'
+            column: address_province
+        addressPostCode:
+            type: string
+            length: '20'
+            column: address_post_code
+        addressCity:
+            type: string
+            length: '45'
+            column: address_city
+        addressLine1:
+            type: string
+            length: '64'
+            column: address_line1
+        addressLine2:
+            type: string
+            length: '64'
+            column: address_line2
+        addressLine3:
+            type: string
+            length: '64'
+            column: address_line3
+        countryId:
+            type: integer
+            column: country_id
+        manyToOne:
+            country:
+                targetEntity: Country
+                inversedBy: addresses
+                joinColumn:
+                    name: countryId
+                    referencedColumnName: countryId
+    lifecycleCallbacks: {  }

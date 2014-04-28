@@ -57,7 +57,7 @@ class Job
     /**
      * @var \DateTime
      */
-    private $jobExporesAt;
+    private $jobExpiresAt;
 
     /**
      * @var boolean
@@ -94,13 +94,28 @@ class Job
      */
     private $addressId;
 
+    /**
+     * @var \Sinoeujobs\JobinBundle\Entity\Address
+     */
+    private $address;
 
     /**
-     * Get id
+     * @var \Sinoeujobs\JobinBundle\Entity\JobCategory
+     */
+    private $jobCategory;
+
+    /**
+     * @var \Sinoeujobs\JobinBundle\Entity\JobType
+     */
+    private $jobType;
+
+
+    /**
+     * Get jobId
      *
      * @return integer 
      */
-    public function getId()
+    public function getJobId()
     {
         return $this->jobId;
     }
@@ -246,13 +261,13 @@ class Job
     /**
      * Set jobCreatedAt
      *
-     * @param \DateTime $jobCreatedAt
      * @return Job
      */
-    public function setJobCreatedAt($jobCreatedAt)
+    public function setJobCreatedAt()
     {
-        $this->jobCreatedAt = $jobCreatedAt;
-
+        if (!$this->getJobCreatedAt()) {
+            $this->jobCreatedAt = new \DateTime();
+        }
         return $this;
     }
 
@@ -269,12 +284,11 @@ class Job
     /**
      * Set jobUpdatedAt
      *
-     * @param \DateTime $jobUpdatedAt
      * @return Job
      */
-    public function setJobUpdatedAt($jobUpdatedAt)
+    public function setJobUpdatedAt()
     {
-        $this->jobUpdatedAt = $jobUpdatedAt;
+        $this->jobUpdatedAt = new \DateTime();
 
         return $this;
     }
@@ -290,26 +304,26 @@ class Job
     }
 
     /**
-     * Set jobExporesAt
+     * Set jobExpiresAt
      *
-     * @param \DateTime $jobExporesAt
+     * @param \DateTime $jobExpiresAt
      * @return Job
      */
-    public function setJobExporesAt($jobExporesAt)
+    public function setJobExpiresAt($jobExpiresAt)
     {
-        $this->jobExporesAt = $jobExporesAt;
+        $this->jobExpiresAt = $jobExpiresAt;
 
         return $this;
     }
 
     /**
-     * Get jobExporesAt
+     * Get jobExpiresAt
      *
      * @return \DateTime 
      */
-    public function getJobExporesAt()
+    public function getJobExpiresAt()
     {
-        return $this->jobExporesAt;
+        return $this->jobExpiresAt;
     }
 
     /**
@@ -471,5 +485,74 @@ class Job
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\Address $address
+     * @return Job
+     */
+    public function setAddress(\Sinoeujobs\JobinBundle\Entity\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \Sinoeujobs\JobinBundle\Entity\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set jobCategory
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\JobCategory $jobCategory
+     * @return Job
+     */
+    public function setJobCategory(\Sinoeujobs\JobinBundle\Entity\JobCategory $jobCategory = null)
+    {
+        $this->jobCategory = $jobCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get jobCategory
+     *
+     * @return \Sinoeujobs\JobinBundle\Entity\JobCategory 
+     */
+    public function getJobCategory()
+    {
+        return $this->jobCategory;
+    }
+
+    /**
+     * Set jobType
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\JobType $jobType
+     * @return Job
+     */
+    public function setJobType(\Sinoeujobs\JobinBundle\Entity\JobType $jobType = null)
+    {
+        $this->jobType = $jobType;
+
+        return $this;
+    }
+
+    /**
+     * Get jobType
+     *
+     * @return \Sinoeujobs\JobinBundle\Entity\JobType 
+     */
+    public function getJobType()
+    {
+        return $this->jobType;
     }
 }

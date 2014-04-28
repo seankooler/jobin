@@ -3,9 +3,10 @@ Sinoeujobs\JobinBundle\Entity\JobCategory:
     table: job_category
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobCategoryRepository
     id:
-        job_category_id:
+        jobCategoryId:
             type: integer
             id: true
+            column: job_category_id
             generator:
                 strategy: AUTO
     fields:
@@ -13,4 +14,9 @@ Sinoeujobs\JobinBundle\Entity\JobCategory:
             type: string
             length: '64'
             column: job_category_label
+            unique: true
+    oneToMany:
+        jobs:
+            targetEntity: Job
+            mappedBy: jobCategory
     lifecycleCallbacks: {  }

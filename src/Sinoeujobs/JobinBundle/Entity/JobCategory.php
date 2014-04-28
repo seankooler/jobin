@@ -19,13 +19,25 @@ class JobCategory
      */
     private $jobCategoryLabel;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $jobs;
 
     /**
-     * Get id
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->jobs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get jobCategoryId
      *
      * @return integer 
      */
-    public function getId()
+    public function getJobCategoryId()
     {
         return $this->jobCategoryId;
     }
@@ -51,5 +63,38 @@ class JobCategory
     public function getJobCategoryLabel()
     {
         return $this->jobCategoryLabel;
+    }
+
+    /**
+     * Add jobs
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\Job $jobs
+     * @return JobCategory
+     */
+    public function addJob(\Sinoeujobs\JobinBundle\Entity\Job $jobs)
+    {
+        $this->jobs[] = $jobs;
+
+        return $this;
+    }
+
+    /**
+     * Remove jobs
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\Job $jobs
+     */
+    public function removeJob(\Sinoeujobs\JobinBundle\Entity\Job $jobs)
+    {
+        $this->jobs->removeElement($jobs);
+    }
+
+    /**
+     * Get jobs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getJobs()
+    {
+        return $this->jobs;
     }
 }

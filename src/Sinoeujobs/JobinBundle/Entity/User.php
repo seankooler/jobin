@@ -12,7 +12,7 @@ class User
     /**
      * @var integer
      */
-    private $user_id;
+    private $userId;
 
     /**
      * @var string
@@ -46,20 +46,20 @@ class User
 
 
     /**
-     * Get id
+     * Get userId
      *
      * @return integer 
      */
-    public function getId()
+    public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
     /**
      * Set userLogin
      *
      * @param string $userLogin
-     * @return user
+     * @return User
      */
     public function setUserLogin($userLogin)
     {
@@ -82,7 +82,7 @@ class User
      * Set userPass
      *
      * @param string $userPass
-     * @return user
+     * @return User
      */
     public function setUserPass($userPass)
     {
@@ -105,7 +105,7 @@ class User
      * Set userEmail
      *
      * @param string $userEmail
-     * @return user
+     * @return User
      */
     public function setUserEmail($userEmail)
     {
@@ -127,12 +127,13 @@ class User
     /**
      * Set userRegistered
      *
-     * @param \DateTime $userRegistered
-     * @return user
+     * @return User
      */
-    public function setUserRegistered($userRegistered)
+    public function setUserRegistered()
     {
-        $this->userRegistered = $userRegistered;
+        if (!$this->getUserRegistered()) {
+            $this->userRegistered = new \DateTime();
+        }
 
         return $this;
     }
@@ -151,7 +152,7 @@ class User
      * Set userActivationKey
      *
      * @param string $userActivationKey
-     * @return user
+     * @return User
      */
     public function setUserActivationKey($userActivationKey)
     {
@@ -174,7 +175,7 @@ class User
      * Set userStatus
      *
      * @param integer $userStatus
-     * @return user
+     * @return User
      */
     public function setUserStatus($userStatus)
     {

@@ -3,9 +3,10 @@ Sinoeujobs\JobinBundle\Entity\Country:
     table: null
     repositoryClass: Sinoeujobs\JobinBundle\Entity\CountryRepository
     id:
-        country_id:
+        countryId:
             type: integer
             id: true
+            column: country_id
             generator:
                 strategy: AUTO
     fields:
@@ -13,8 +14,10 @@ Sinoeujobs\JobinBundle\Entity\Country:
             type: string
             length: '2'
             column: country_code
+            unique: true
         countryName:
             type: string
             length: '64'
             column: country_name
+            unique: true
     lifecycleCallbacks: {  }

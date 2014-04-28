@@ -3,9 +3,10 @@ Sinoeujobs\JobinBundle\Entity\Job:
     table: null
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobRepository
     id:
-        job_id:
+        jobId:
             type: integer
             id: true
+            column: job_id
             generator:
                 strategy: AUTO
     fields:
@@ -17,6 +18,7 @@ Sinoeujobs\JobinBundle\Entity\Job:
             type: string
             length: '128'
             column: job_slug
+            unique: true
         jobCompanyName:
             type: string
             length: '128'
@@ -38,9 +40,11 @@ Sinoeujobs\JobinBundle\Entity\Job:
         jobUpdatedAt:
             type: datetime
             column: job_updated_at
-        jobExporesAt:
+            nullable: true
+        jobExpiresAt:
             type: date
-            column: job_expores_at
+            column: job_expires_at
+            nullable: true
         jobIsApproved:
             type: boolean
             column: job_is_approved
@@ -62,4 +66,25 @@ Sinoeujobs\JobinBundle\Entity\Job:
         addressId:
             type: integer
             column: address_id
-    lifecycleCallbacks: {  }
+    manyToOne:
+        jobCategory:
+            targetEntity: JobCategory
+            inversedBy: jobs
+            joinColumn:
+                name: jobCategoryId
+                referencedColumnName: jobCategoryId
+        jobType:
+            targetEntity: JobType
+            inversedBy: jobs
+            joinColumn:
+                name: jobTypeId
+                referencedColumnName: jobTypeId
+    oneToOne:
+        address:
+            targetEntity: Address
+            joinColumn:
+                name: addressId
+                referencedColumnName: addressId
+    lifecycleCallbacks:
+        prePersist: [ setJobCreatedAt ]
+        preUpdate: [ setJobUpdatedAt ]

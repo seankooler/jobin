@@ -3,9 +3,10 @@ Sinoeujobs\JobinBundle\Entity\JobType:
     table: null
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobTypeRepository
     id:
-        job_type_id:
+        jobTypeId:
             type: integer
             id: true
+            column: job_type_id
             generator:
                 strategy: AUTO
     fields:
@@ -13,4 +14,5 @@ Sinoeujobs\JobinBundle\Entity\JobType:
             type: string
             length: '45'
             column: job_type_label
+            unique: true
     lifecycleCallbacks: {  }

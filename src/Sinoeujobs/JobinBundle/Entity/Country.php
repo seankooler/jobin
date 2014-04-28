@@ -26,11 +26,11 @@ class Country
 
 
     /**
-     * Get id
+     * Get countryId
      *
      * @return integer 
      */
-    public function getId()
+    public function getCountryId()
     {
         return $this->countryId;
     }

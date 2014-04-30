@@ -37,6 +37,11 @@ class Job
     /**
      * @var string
      */
+    private $jobCompanyWebsite;
+
+    /**
+     * @var string
+     */
     private $jobDescription;
 
     /**
@@ -210,6 +215,29 @@ class Job
     public function getJobCompanyLogo()
     {
         return $this->jobCompanyLogo;
+    }
+
+    /**
+     * Set jobCompanyWebsite
+     *
+     * @param string $jobCompanyWebsite
+     * @return Job
+     */
+    public function setJobCompanyWebsite($jobCompanyWebsite)
+    {
+        $this->jobCompanyWebsite = $jobCompanyWebsite;
+
+        return $this;
+    }
+
+    /**
+     * Get jobCompanyWebsite
+     *
+     * @return string
+     */
+    public function getJobCompanyWebsite()
+    {
+        return $this->jobCompanyWebsite;
     }
 
     /**

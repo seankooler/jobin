@@ -30,18 +30,20 @@ Sinoeujobs\JobinBundle\Entity\Address:
             type: string
             length: '64'
             column: address_line2
+            nullable: true
         addressLine3:
             type: string
             length: '64'
             column: address_line3
+            nullable: true
         countryId:
             type: integer
             column: country_id
-        manyToOne:
-            country:
-                targetEntity: Country
-                inversedBy: addresses
-                joinColumn:
-                    name: countryId
-                    referencedColumnName: countryId
+    manyToOne:
+        country:
+            targetEntity: Country
+            inversedBy: addresses
+            joinColumn:
+                name: countryId
+                referencedColumnName: countryId
     lifecycleCallbacks: {  }

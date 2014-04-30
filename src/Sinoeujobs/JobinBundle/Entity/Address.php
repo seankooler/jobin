@@ -225,27 +225,33 @@ class Address
     {
         return $this->countryId;
     }
+	
+    /**
+     * @var \Sinoeujobs\JobinBundle\Entity\Country
+     */
+    private $country;
+
 
     /**
-     * Set manyToOne
+     * Set country
      *
-     * @param string $manyToOne
+     * @param \Sinoeujobs\JobinBundle\Entity\Country $country
      * @return Address
      */
-    public function setManyToOne($manyToOne)
+    public function setCountry(\Sinoeujobs\JobinBundle\Entity\Country $country = null)
     {
-        $this->manyToOne = $manyToOne;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * Get manyToOne
+     * Get country
      *
-     * @return string 
+     * @return \Sinoeujobs\JobinBundle\Entity\Country 
      */
-    public function getManyToOne()
+    public function getCountry()
     {
-        return $this->manyToOne;
+        return $this->country;
     }
 }

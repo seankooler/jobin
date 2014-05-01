@@ -1,6 +1,6 @@
 Sinoeujobs\JobinBundle\Entity\Country:
     type: entity
-    table: null
+    table: country
     repositoryClass: Sinoeujobs\JobinBundle\Entity\CountryRepository
     id:
         countryId:

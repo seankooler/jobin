@@ -1,6 +1,6 @@
 Sinoeujobs\JobinBundle\Entity\Company:
     type: entity
-    table: null
+    table: company
     repositoryClass: Sinoeujobs\JobinBundle\Entity\companyRepository
     id:
         companyId:

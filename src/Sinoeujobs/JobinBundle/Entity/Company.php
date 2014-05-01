@@ -247,7 +247,7 @@ class Company
      * @param integer $userId
      * @return Company
      */
-    public function setUserId($userId)
+    private function setUserId($userId)
     {
         $this->userId = $userId;
 
@@ -270,7 +270,7 @@ class Company
      * @param integer $addressId
      * @return Company
      */
-    public function setAddressId($addressId)
+    private function setAddressId($addressId)
     {
         $this->addressId = $addressId;
 
@@ -296,6 +296,7 @@ class Company
     public function setAddress(\Sinoeujobs\JobinBundle\Entity\Address $address = null)
     {
         $this->address = $address;
+        $this->setAddressId($this->address->getAddressId());
 
         return $this;
     }
@@ -319,6 +320,7 @@ class Company
     public function setUser(\Sinoeujobs\JobinBundle\Entity\User $user = null)
     {
         $this->user = $user;
+        $this->setUserId($this->user->getUserId());
 
         return $this;
     }

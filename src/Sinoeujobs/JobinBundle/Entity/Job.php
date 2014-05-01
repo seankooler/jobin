@@ -429,7 +429,7 @@ class Job
      * @param integer $jobTypeId
      * @return Job
      */
-    public function setJobTypeId($jobTypeId)
+    private function setJobTypeId($jobTypeId)
     {
         $this->jobTypeId = $jobTypeId;
 
@@ -452,7 +452,7 @@ class Job
      * @param integer $jobCategoryId
      * @return Job
      */
-    public function setJobCategoryId($jobCategoryId)
+    private function setJobCategoryId($jobCategoryId)
     {
         $this->jobCategoryId = $jobCategoryId;
 
@@ -475,7 +475,7 @@ class Job
      * @param integer $ownerId
      * @return Job
      */
-    public function setOwnerId($ownerId)
+    private function setOwnerId($ownerId)
     {
         $this->ownerId = $ownerId;
 
@@ -498,7 +498,7 @@ class Job
      * @param integer $addressId
      * @return Job
      */
-    public function setAddressId($addressId)
+    private  function setAddressId($addressId)
     {
         $this->addressId = $addressId;
 
@@ -524,6 +524,7 @@ class Job
     public function setAddress(\Sinoeujobs\JobinBundle\Entity\Address $address = null)
     {
         $this->address = $address;
+        $this->setAddressId($this->address->getAddressId());
 
         return $this;
     }
@@ -547,6 +548,7 @@ class Job
     public function setJobCategory(\Sinoeujobs\JobinBundle\Entity\JobCategory $jobCategory = null)
     {
         $this->jobCategory = $jobCategory;
+        $this->setJobCategoryId($this->jobCategory->getJobCategoryId());
 
         return $this;
     }
@@ -570,6 +572,7 @@ class Job
     public function setJobType(\Sinoeujobs\JobinBundle\Entity\JobType $jobType = null)
     {
         $this->jobType = $jobType;
+        $this->setJobTypeId($this->jobType->getJobTypeId());
 
         return $this;
     }
@@ -582,5 +585,34 @@ class Job
     public function getJobType()
     {
         return $this->jobType;
+    }
+    /**
+     * @var \Sinoeujobs\JobinBundle\Entity\User
+     */
+    private $owner;
+
+
+    /**
+     * Set owner
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\User $owner
+     * @return Job
+     */
+    public function setOwner(\Sinoeujobs\JobinBundle\Entity\User $owner = null)
+    {
+        $this->owner = $owner;
+        $this->setOwnerId($this->owner->getUserId());
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return \Sinoeujobs\JobinBundle\Entity\User 
+     */
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }

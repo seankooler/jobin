@@ -6,7 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Sinoeujobs\JobinBundle\Entity\Country;
 
-class LoadJobCategoryData extends AbstractFixture implements OrderedFixtureInterface
+class LoadCountryData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $em)
     {
@@ -40,6 +40,6 @@ class LoadJobCategoryData extends AbstractFixture implements OrderedFixtureInter
 
     public function getOrder()
     {
-        return 2; // the order in which fixtures will be loaded
+        return 1; // the order in which fixtures will be loaded
     }
 }

@@ -1,6 +1,6 @@
 Sinoeujobs\JobinBundle\Entity\Address:
     type: entity
-    table: null
+    table: address
     repositoryClass: Sinoeujobs\JobinBundle\Entity\AddressRepository
     id:
         addressId:
@@ -30,12 +30,10 @@ Sinoeujobs\JobinBundle\Entity\Address:
             type: string
             length: '64'
             column: address_line2
-            nullable: true
         addressLine3:
             type: string
             length: '64'
             column: address_line3
-            nullable: true
         countryId:
             type: integer
             column: country_id

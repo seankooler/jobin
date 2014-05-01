@@ -1,6 +1,6 @@
 Sinoeujobs\JobinBundle\Entity\Job:
     type: entity
-    table: null
+    table: job
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobRepository
     id:
         jobId:
@@ -83,6 +83,12 @@ Sinoeujobs\JobinBundle\Entity\Job:
             joinColumn:
                 name: jobTypeId
                 referencedColumnName: jobTypeId
+        owner:
+            targetEntity: User
+            inversedBy: jobs
+            joinColumn:
+                name: ownerId
+                referencedColumnName: userId
     oneToOne:
         address:
             targetEntity: Address

@@ -50,12 +50,6 @@ class Address
     private $countryId;
 
     /**
-     * @var string
-     */
-    private $manyToOne;
-
-
-    /**
      * Get addressId
      *
      * @return integer 
@@ -209,7 +203,7 @@ class Address
      * @param integer $countryId
      * @return Address
      */
-    public function setCountryId($countryId)
+    private function setCountryId($countryId)
     {
         $this->countryId = $countryId;
 
@@ -241,7 +235,7 @@ class Address
     public function setCountry(\Sinoeujobs\JobinBundle\Entity\Country $country = null)
     {
         $this->country = $country;
-
+        $this->setCountryId($this->country->getCountryId());
         return $this;
     }
 

@@ -1,6 +1,6 @@
 Sinoeujobs\JobinBundle\Entity\JobType:
     type: entity
-    table: null
+    table: job_type
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobTypeRepository
     id:
         jobTypeId:

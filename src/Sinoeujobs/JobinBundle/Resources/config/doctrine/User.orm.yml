@@ -1,6 +1,6 @@
 Sinoeujobs\JobinBundle\Entity\User:
     type: entity
-    table: null
+    table: user
     repositoryClass: Sinoeujobs\JobinBundle\Entity\userRepository
     id:
         userId:
@@ -35,5 +35,9 @@ Sinoeujobs\JobinBundle\Entity\User:
         userStatus:
             type: smallint
             column: user_status
+    oneToMany:
+        jobs:
+            targetEntity: Job
+            mappedBy: ownerId
     lifecycleCallbacks:
         prePersist: [ setUserRegistered ]

@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\Country:
     table: country
     repositoryClass: Sinoeujobs\JobinBundle\Entity\CountryRepository
     id:
-        countryId:
+        id:
             type: integer
             id: true
             column: country_id

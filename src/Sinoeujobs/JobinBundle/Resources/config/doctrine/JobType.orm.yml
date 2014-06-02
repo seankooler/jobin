@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\JobType:
     table: job_type
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobTypeRepository
     id:
-        jobTypeId:
+        id:
             type: integer
             id: true
             column: job_type_id
@@ -15,4 +15,8 @@ Sinoeujobs\JobinBundle\Entity\JobType:
             length: '45'
             column: job_type_label
             unique: true
+    oneToMany:
+        jobs:
+            targetEntity: Job
+            mappedBy: jobType
     lifecycleCallbacks: {  }

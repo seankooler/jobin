@@ -12,7 +12,7 @@ class JobCategory
     /**
      * @var integer
      */
-    private $jobCategoryId;
+    private $id;
 
     /**
      * @var string
@@ -37,9 +37,9 @@ class JobCategory
      *
      * @return integer 
      */
-    public function getJobCategoryId()
+    public function getId()
     {
-        return $this->jobCategoryId;
+        return $this->id;
     }
 
     /**
@@ -96,5 +96,10 @@ class JobCategory
     public function getJobs()
     {
         return $this->jobs;
+    }
+
+    public function __toString()
+    {
+        return $this->getJobCategoryLabel() ? $this->getJobCategoryLabel() : "";
     }
 }

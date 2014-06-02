@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\Job:
     table: job
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobRepository
     id:
-        jobId:
+        id:
             type: integer
             id: true
             column: job_id
@@ -75,26 +75,26 @@ Sinoeujobs\JobinBundle\Entity\Job:
             targetEntity: JobCategory
             inversedBy: jobs
             joinColumn:
-                name: jobCategoryId
-                referencedColumnName: jobCategoryId
+                name: job_category_id
+                referencedColumnName: job_category_id
         jobType:
             targetEntity: JobType
             inversedBy: jobs
             joinColumn:
-                name: jobTypeId
-                referencedColumnName: jobTypeId
+                name: job_type_id
+                referencedColumnName: job_type_id
         owner:
             targetEntity: User
             inversedBy: jobs
             joinColumn:
-                name: ownerId
-                referencedColumnName: userId
+                name: owner_id
+                referencedColumnName: user_id
     oneToOne:
         address:
             targetEntity: Address
             joinColumn:
-                name: addressId
-                referencedColumnName: addressId
+                name: address_id
+                referencedColumnName: address_id
     lifecycleCallbacks:
         prePersist: [ setJobCreatedAt ]
         preUpdate: [ setJobUpdatedAt ]

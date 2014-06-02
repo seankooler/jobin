@@ -12,7 +12,7 @@ class Address
     /**
      * @var integer
      */
-    private $addressId;
+    private $id;
 
     /**
      * @var string
@@ -50,13 +50,13 @@ class Address
     private $countryId;
 
     /**
-     * Get addressId
+     * Get address id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getAddressId()
+    public function getId()
     {
-        return $this->addressId;
+        return $this->id;
     }
 
     /**
@@ -235,7 +235,7 @@ class Address
     public function setCountry(\Sinoeujobs\JobinBundle\Entity\Country $country = null)
     {
         $this->country = $country;
-        $this->setCountryId($this->country->getCountryId());
+        $this->setCountryId($this->country->getId());
         return $this;
     }
 
@@ -247,5 +247,16 @@ class Address
     public function getCountry()
     {
         return $this->country;
+    }
+
+    public function __toString()
+    {
+        $address = $this->getAddressLine1() . PHP_EOL;
+        $address .= $this->getAddressLine2() != "" ? $this->getAddressLine2() . PHP_EOL : '';
+        $address .= $this->getAddressLine3() != "" ? $this->getAddressLine3() . PHP_EOL : '';
+        $address .= $this->getAddressPostCode() . ' ' . $this->getAddressCity() . PHP_EOL;
+        $address .= $this->getAddressProvince() != "" ? $this->getAddressProvince() . PHP_EOL : '';
+        $address .= $this->getCountry();
+        return $address;
     }
 }

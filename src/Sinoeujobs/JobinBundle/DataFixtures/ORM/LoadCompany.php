@@ -29,7 +29,7 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
         $sinoeujobs->setUser($em->merge($this->getReference('user-bin')));
 
         $em->persist($sensioLabs);
-        $em->persist($sensioLabs);
+        $em->persist($sinoeujobs);
         $em->flush();
 
         $this->addReference('company-sensio-labs', $sensioLabs);
@@ -38,6 +38,6 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 5; // the order in which fixtures will be loaded
+        return 6; // the order in which fixtures will be loaded
     }
 }

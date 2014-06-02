@@ -1,0 +1,96 @@
+{% extends 'SinoeujobsJobinBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1>Job</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Jobtitle</th>
+                <td>{{ entity.jobTitle }}</td>
+            </tr>
+            <tr>
+                <th>Jobslug</th>
+                <td>{{ entity.jobSlug }}</td>
+            </tr>
+            <tr>
+                <th>Jobcompanyname</th>
+                <td>{{ entity.jobCompanyName }}</td>
+            </tr>
+            <tr>
+                <th>Jobcompanylogo</th>
+                <td>{{ entity.jobCompanyLogo }}</td>
+            </tr>
+            <tr>
+                <th>Jobcompanywebsite</th>
+                <td>{{ entity.jobCompanyWebsite }}</td>
+            </tr>
+            <tr>
+                <th>Jobdescription</th>
+                <td>{{ entity.jobDescription }}</td>
+            </tr>
+            <tr>
+                <th>Jobapply</th>
+                <td>{{ entity.jobApply }}</td>
+            </tr>
+            <tr>
+                <th>Jobcreatedat</th>
+                <td>{{ entity.jobCreatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Jobupdatedat</th>
+                <td>{{ entity.jobUpdatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Jobexpiresat</th>
+                <td>{{ entity.jobExpiresAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Jobisapproved</th>
+                <td>{{ entity.jobIsApproved }}</td>
+            </tr>
+            <tr>
+                <th>Jobisactive</th>
+                <td>{{ entity.jobIsActive }}</td>
+            </tr>
+            <tr>
+                <th>Jobisfilled</th>
+                <td>{{ entity.jobIsFilled }}</td>
+            </tr>
+            <tr>
+                <th>Jobtypeid</th>
+                <td>{{ entity.jobType }}</td>
+            </tr>
+            <tr>
+                <th>Jobcategoryid</th>
+                <td>{{ entity.jobCategory }}</td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td>{{ entity.owner }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ entity.getAddress }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('job') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('job_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

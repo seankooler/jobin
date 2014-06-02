@@ -14,21 +14,27 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
         $bin->setUserLogin('seankooler@hotmail.com');
         $bin->setUserPass('831004');
         $bin->setUserEmail('seankooler@hotmail.com');
-        $bin->setUserActivationKey(uniqid());
+        $bin->setUserFirstName('Bin');
+        $bin->setUserLastName('XIAO');
+        $bin->setUserActivationKey('55640042ce576');
         $bin->setUserStatus(2);
 
         $shuren = new User();
         $shuren->setUserLogin('surenren@hotmail.com');
         $shuren->setUserPass('840821');
         $shuren->setUserEmail('surenren@hotmail.com');
-        $shuren->setUserActivationKey(uniqid());
+        $shuren->setUserFirstName('Shuren');
+        $shuren->setUserLastName('SUN');
+        $shuren->setUserActivationKey('55640042ce536');
         $shuren->setUserStatus(2);
 
         $fabien = new User();
         $fabien->setUserLogin('fabien@sensiolabs.com');
         $fabien->setUserPass('123456');
         $fabien->setUserEmail('fabien@sensiolabs.com');
-        $fabien->setUserActivationKey(uniqid());
+        $fabien->setUserFirstName('Fabien');
+        $fabien->setUserLastName('Potencier');
+        $fabien->setUserActivationKey('53640042ce536');
         $fabien->setUserStatus(2);
 
         $em->persist($bin);
@@ -43,6 +49,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 6; // the order in which fixtures will be loaded
+        return 5; // the order in which fixtures will be loaded
     }
 }

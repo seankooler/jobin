@@ -12,7 +12,7 @@ class JobType
     /**
      * @var integer
      */
-    private $jobTypeId;
+    private $id;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class JobType
      *
      * @return integer 
      */
-    public function getJobTypeId()
+    public function getId()
     {
-        return $this->jobTypeId;
+        return $this->id;
     }
 
     /**
@@ -51,5 +51,56 @@ class JobType
     public function getJobTypeLabel()
     {
         return $this->jobTypeLabel;
+    }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $jobs;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->jobs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add jobs
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\Job $jobs
+     * @return JobType
+     */
+    public function addJob(\Sinoeujobs\JobinBundle\Entity\Job $jobs)
+    {
+        $this->jobs[] = $jobs;
+
+        return $this;
+    }
+
+    /**
+     * Remove jobs
+     *
+     * @param \Sinoeujobs\JobinBundle\Entity\Job $jobs
+     */
+    public function removeJob(\Sinoeujobs\JobinBundle\Entity\Job $jobs)
+    {
+        $this->jobs->removeElement($jobs);
+    }
+
+    /**
+     * Get jobs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getJobs()
+    {
+        return $this->jobs;
+    }
+
+    public function __toString()
+    {
+        return $this->getJobTypeLabel() ? $this->getJobTypeLabel() : "";
     }
 }

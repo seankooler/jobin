@@ -12,7 +12,7 @@ class Country
     /**
      * @var integer
      */
-    private $countryId;
+    private $id;
 
     /**
      * @var string
@@ -30,9 +30,9 @@ class Country
      *
      * @return integer 
      */
-    public function getCountryId()
+    public function getId()
     {
-        return $this->countryId;
+        return $this->id;
     }
 
     /**
@@ -79,5 +79,10 @@ class Country
     public function getCountryName()
     {
         return $this->countryName;
+    }
+
+    public function __toString()
+    {
+        return $this->getCountryName() ? $this->getCountryName() : "";
     }
 }

@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\User:
     table: user
     repositoryClass: Sinoeujobs\JobinBundle\Entity\userRepository
     id:
-        userId:
+        id:
             type: integer
             id: true
             column: user_id
@@ -24,6 +24,14 @@ Sinoeujobs\JobinBundle\Entity\User:
             length: '128'
             column: user_email
             unique: true
+        userFirstName:
+            type: string
+            length: '64'
+            column: user_first_name
+        userLastName:
+            type: string
+            length: '64'
+            column: user_last_name
         userRegistered:
             type: datetime
             column: user_registered
@@ -38,6 +46,6 @@ Sinoeujobs\JobinBundle\Entity\User:
     oneToMany:
         jobs:
             targetEntity: Job
-            mappedBy: ownerId
+            mappedBy: owner_id
     lifecycleCallbacks:
         prePersist: [ setUserRegistered ]

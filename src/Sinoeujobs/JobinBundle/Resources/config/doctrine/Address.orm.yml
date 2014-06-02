@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\Address:
     table: address
     repositoryClass: Sinoeujobs\JobinBundle\Entity\AddressRepository
     id:
-        addressId:
+        id:
             type: integer
             id: true
             column: address_id
@@ -40,8 +40,7 @@ Sinoeujobs\JobinBundle\Entity\Address:
     manyToOne:
         country:
             targetEntity: Country
-            inversedBy: addresses
             joinColumn:
-                name: countryId
-                referencedColumnName: countryId
+                name: country_id
+                referencedColumnName: country_id
     lifecycleCallbacks: {  }

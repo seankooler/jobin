@@ -12,7 +12,7 @@ class User
     /**
      * @var integer
      */
-    private $userId;
+    private $id;
 
     /**
      * @var string
@@ -28,6 +28,16 @@ class User
      * @var string
      */
     private $userEmail;
+
+    /**
+     * @var string
+     */
+    private $userFirstName;
+
+    /**
+     * @var string
+     */
+    private $userLastName;
 
     /**
      * @var \DateTime
@@ -50,9 +60,9 @@ class User
      *
      * @return integer 
      */
-    public function getUserId()
+    public function getId()
     {
-        return $this->userId;
+        return $this->id;
     }
 
     /**
@@ -124,6 +134,52 @@ class User
     public function getUserEmail()
     {
         return $this->userEmail;
+    }
+
+    /**
+     * Set userFirstName
+     *
+     * @param string $userFirstName
+     * @return User
+     */
+    public function setUserFirstName($userFirstName)
+    {
+        $this->userFirstName = $userFirstName;
+
+        return $this;
+    }
+
+    /**
+     * Get userFirstName
+     *
+     * @return string
+     */
+    public function getUserFirstName()
+    {
+        return $this->userFirstName;
+    }
+
+    /**
+     * Set userLastName
+     *
+     * @param string $userLastName
+     * @return User
+     */
+    public function setUserLastName($userLastName)
+    {
+        $this->userLastName = $userLastName;
+
+        return $this;
+    }
+
+    /**
+     * Get userFirstName
+     *
+     * @return string
+     */
+    public function getUserLastName()
+    {
+        return $this->userLastName;
     }
 
     /**
@@ -239,5 +295,15 @@ class User
     public function getJobs()
     {
         return $this->jobs;
+    }
+
+    public function getDisplayName()
+    {
+        return $this->getUserFirstName() . ' ' . $this->getUserLastName();
+    }
+
+    public function __toString()
+    {
+        return $this->getDisplayName();
     }
 }

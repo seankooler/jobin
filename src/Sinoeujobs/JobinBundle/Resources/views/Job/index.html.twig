@@ -1,0 +1,78 @@
+{% extends 'SinoeujobsJobinBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="starter-template">
+        <h1>Job list</h1>
+        <table class="records_list">
+            <thead>
+            <tr>
+                {#<th>Id</th>}#}
+                <th>Jobtitle</th>
+                {#<th>Jobslug</th>#}
+                <th>Jobcompanyname</th>
+                <th>Jobcompanylogo</th>
+                {#<th>Jobcompanywebsite</th>#}
+                {#<th>Jobdescription</th>#}
+                {#<th>Jobapply</th>#}
+                <th>Jobcreatedat</th>
+                <th>Jobupdatedat</th>
+                {#<th>Jobexpiresat</th>#}
+                {#<th>Jobisapproved</th>#}
+                {# <th>Jobisactive</th>#}
+                {#<th>Jobisfilled</th>#}
+                <th>Jobtype</th>
+                <th>Jobcategory</th>
+                {#<th>Ownerid</th>#}
+                {#<th>Addressid</th>#}
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    {# <td><a href="{{ path('job_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
+                    <td>
+                        <a href="{{ path('job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}">
+                            {{ entity.jobTitle }}
+                        </a>
+                    </td>
+                    {# <td>{{ entity.jobSlug }}</td>#}
+                    <td>{{ entity.jobCompanyName }}</td>
+                    <td>{{ entity.jobCompanyLogo }}</td>
+                    {#<td>{{ entity.jobCompanyWebsite }}</td>#}
+                    {#<td>{{ entity.jobDescription }}</td>#}
+                    {# <td>{{ entity.jobApply }}</td>#}
+                    <td>{% if entity.jobCreatedAt %}{{ entity.jobCreatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if entity.jobUpdatedAt %}{{ entity.jobUpdatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    {# <td>{% if entity.jobExpiresAt %}{{ entity.jobExpiresAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                    {#<td>{{ entity.jobIsApproved }}</td>#}
+                    {#<td>{{ entity.jobIsActive }}</td>#}
+                    {# <td>{{ entity.jobIsFilled }}</td>#}
+                    <td>{{ entity.jobType }}</td>
+                    <td>{{ entity.jobCategory }}</td>
+                    {# <td>{{ entity.owner }}</td>#}
+                    {#<td>{{ entity.addressId }}</td>#}
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('job_edit', { 'id': entity.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('job_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

@@ -12,7 +12,7 @@ class Company
     /**
      * @var integer
      */
-    private $companyId;
+    private $id;
 
     /**
      * @var string
@@ -71,13 +71,13 @@ class Company
 
 
     /**
-     * Get companyId
+     * Get Company Id
      *
      * @return integer 
      */
-    public function getCompanyId()
+    public function getId()
     {
-        return $this->companyId;
+        return $this->id;
     }
 
     /**
@@ -296,7 +296,7 @@ class Company
     public function setAddress(\Sinoeujobs\JobinBundle\Entity\Address $address = null)
     {
         $this->address = $address;
-        $this->setAddressId($this->address->getAddressId());
+        $this->setAddressId($this->address->getId());
 
         return $this;
     }
@@ -320,7 +320,7 @@ class Company
     public function setUser(\Sinoeujobs\JobinBundle\Entity\User $user = null)
     {
         $this->user = $user;
-        $this->setUserId($this->user->getUserId());
+        $this->setUserId($this->user->getId());
 
         return $this;
     }

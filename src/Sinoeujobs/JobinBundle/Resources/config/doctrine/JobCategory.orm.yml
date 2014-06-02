@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\JobCategory:
     table: job_category
     repositoryClass: Sinoeujobs\JobinBundle\Entity\JobCategoryRepository
     id:
-        jobCategoryId:
+        id:
             type: integer
             id: true
             column: job_category_id

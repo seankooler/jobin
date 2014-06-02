@@ -3,7 +3,7 @@ Sinoeujobs\JobinBundle\Entity\Company:
     table: company
     repositoryClass: Sinoeujobs\JobinBundle\Entity\companyRepository
     id:
-        companyId:
+        id:
             type: integer
             id: true
             column: company_id
@@ -47,14 +47,14 @@ Sinoeujobs\JobinBundle\Entity\Company:
             targetEntity: User
             inversedBy: companies
             joinColumn:
-                name: userId
-                referencedColumnName: userId
+                name: user_id
+                referencedColumnName: user_id
     oneToOne:
         address:
             targetEntity: Address
             joinColumn:
-                name: addressId
-                referencedColumnName: addressId
+                name: address_id
+                referencedColumnName: address_id
     lifecycleCallbacks:
         prePersist: [ setCompanyCreatedAt ]
         preUpdate: [ setCompanyUpdatedAt ]

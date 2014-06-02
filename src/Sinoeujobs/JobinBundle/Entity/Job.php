@@ -3,6 +3,7 @@
 namespace Sinoeujobs\JobinBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sinoeujobs\JobinBundle\Utils\Jobin as Jobin;
 
 /**
  * Job
@@ -12,7 +13,7 @@ class Job
     /**
      * @var integer
      */
-    private $jobId;
+    private $id;
 
     /**
      * @var string
@@ -120,9 +121,9 @@ class Job
      *
      * @return integer 
      */
-    public function getJobId()
+    public function getId()
     {
-        return $this->jobId;
+        return $this->id;
     }
 
     /**
@@ -524,7 +525,7 @@ class Job
     public function setAddress(\Sinoeujobs\JobinBundle\Entity\Address $address = null)
     {
         $this->address = $address;
-        $this->setAddressId($this->address->getAddressId());
+        $this->setAddressId($this->address->getId());
 
         return $this;
     }
@@ -548,7 +549,7 @@ class Job
     public function setJobCategory(\Sinoeujobs\JobinBundle\Entity\JobCategory $jobCategory = null)
     {
         $this->jobCategory = $jobCategory;
-        $this->setJobCategoryId($this->jobCategory->getJobCategoryId());
+        $this->setJobCategoryId($this->jobCategory->getId());
 
         return $this;
     }
@@ -572,7 +573,7 @@ class Job
     public function setJobType(\Sinoeujobs\JobinBundle\Entity\JobType $jobType = null)
     {
         $this->jobType = $jobType;
-        $this->setJobTypeId($this->jobType->getJobTypeId());
+        $this->setJobTypeId($this->jobType->getId());
 
         return $this;
     }
@@ -601,7 +602,7 @@ class Job
     public function setOwner(\Sinoeujobs\JobinBundle\Entity\User $owner = null)
     {
         $this->owner = $owner;
-        $this->setOwnerId($this->owner->getUserId());
+        $this->setOwnerId($this->owner->getId());
 
         return $this;
     }
@@ -614,5 +615,20 @@ class Job
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    public function getCompanySlug()
+    {
+        return Jobin::slugify($this->getJobCompanyName());
+    }
+
+    public function getPositionSlug()
+    {
+        return Jobin::slugify($this->getJobTitle());
+    }
+
+    public function getLocationSlug()
+    {
+        return Jobin::slugify($this->getAddress()->getAddressCity());
     }
 }

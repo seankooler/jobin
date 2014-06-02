@@ -19,7 +19,12 @@
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "oyejorge/less.php": "dev-master",
+        "twitter/bootstrap": "dev-master",
+        "packagist/cssembed-bin": "dev-master",
+        "packagist/yuicompressor-bin": "dev-master",
+        "components/jquery": "~1.11"
     },
     "scripts": {
         "post-install-cmd": [
